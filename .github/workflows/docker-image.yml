@@ -29,4 +29,4 @@ jobs:
         password: ${{ secrets.TOKEN_GITHUB }}
 
     - name: Push the Docker image
-      run: docker push ghcr.io/gawingowin/$IMAGE_PATH:latest
+      run: docker push ghcr.io/gawingowin/$IMAGE_NAME:latest
