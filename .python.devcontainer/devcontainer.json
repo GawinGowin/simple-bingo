@@ -2,14 +2,14 @@
 	"name": "Python",
 
 	"build": {
-		"dockerfile": "./Dockerfile"
+		"dockerfile": "../Dockerfile",
+		"target": "dev"
 	},
 	"runArgs": [
 		"-it", "--rm",
 		"--name", "python-container",
 		"-p", "5000:5000"
 	],
-
 	"workspaceFolder": "/app",
 	"workspaceMount": "source=${localWorkspaceFolder},target=/app,type=bind,consistency=delegated",
 	"customizations": {
