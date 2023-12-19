@@ -13,7 +13,7 @@
 	"mounts": [
 		"source=${localEnv:APPDATA}/gcloud,target=/root/.config/gcloud,type=bind,consistency=cached", // for windows
 		"source=${localEnv:USERPROFILE}/.kube,target=/root/.kube,type=bind,consistency=cached", // for windows
-		"source=terraform_volume,target=${containerWorkspaceFolder}/terraform/.terraform,type=volume" // make terraform commands faster
+		"source=terraform_volume,target=${containerWorkspaceFolder}/infra/terraform/.terraform,type=volume" // make terraform commands faster
 	],
 	"workspaceFolder": "/app",
 	"workspaceMount": "source=${localWorkspaceFolder},target=/app,type=bind,consistency=delegated",
