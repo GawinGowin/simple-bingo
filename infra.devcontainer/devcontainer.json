@@ -1,0 +1,45 @@
+{
+	"name": "Ubuntu",
+
+	"build": {
+		"dockerfile": "./Dockerfile"
+	},
+	"runArgs": [
+		"-it", "--rm",
+		"--name", "3-shake-pipecd"
+	],
+	
+	"features": {
+		"ghcr.io/devcontainers-contrib/features/tfenv-homebrew:1": {}
+	},
+
+	"mounts": [
+		"source=${localEnv:APPDATA}/gcloud,target=/root/.config/gcloud,type=bind,consistency=cached", // for windows
+		"source=${localEnv:USERPROFILE}/.kube,target=/root/.kube,type=bind,consistency=cached", // for windows
+		"source=terraform_server_volume,target=/pipecd/server/.terraform,type=volume", // make terraform commands faster
+    "source=terraform_agent_volume,target=/pipecd/agent/.terraform,type=volume", // make terraform commands faster
+		"source=pipecd_repo,target=/pipecd/pipecd,type=volume" // pipecd repo
+	],
+
+	"workspaceFolder": "/pipecd",
+	"workspaceMount": "source=${localWorkspaceFolder},target=/pipecd,type=bind,consistency=delegated",
+	"postCreateCommand": "TFENV_VER=$(tfenv list-remote | grep -v - |  head -n1) && tfenv install $TFENV_VER && tfenv use $TFENV_VER",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"GitHub.copilot",
+				"hashicorp.terraform",
+				"mhutchie.git-graph",
+				"redhat.vscode-yaml",
+				"ms-kubernetes-tools.vscode-kubernetes-tools",
+				"golang.go"
+			],
+			"settings": {
+				"editor.detectIndentation": false,
+				"editor.insertSpaces": true,
+				"editor.tabSize": 2
+			}
+		}
+	},
+	"remoteUser": "root"
+}
