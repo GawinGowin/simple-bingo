@@ -25,13 +25,13 @@ RUN echo "deb [signed-by=/usr/share/keyrings/cloud.google.asc] http://packages.c
  && curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | tee /usr/share/keyrings/cloud.google.asc && apt-get update -y && apt-get install google-cloud-sdk -y \
  && sudo apt-get install google-cloud-sdk-gke-gcloud-auth-plugin -y
 
-# install PipeCD quick starter
-ENV OS=linux
-RUN curl -Lo ./pipectl https://github.com/pipe-cd/pipecd/releases/download/v0.45.3/pipectl_v0.45.3_${OS}_amd64 \
-  && chmod +x ./pipectl \
-  && sudo mv ./pipectl /usr/local/bin/pipectl
+# # install PipeCD quick starter
+# ENV OS=linux
+# RUN curl -Lo ./pipectl https://github.com/pipe-cd/pipecd/releases/download/v0.45.3/pipectl_v0.45.3_${OS}_amd64 \
+#   && chmod +x ./pipectl \
+#   && sudo mv ./pipectl /usr/local/bin/pipectl
 
-# install Argocd CLI
-RUN curl -sSL -o argocd-linux-amd64 https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64 \
-  && sudo install -m 555 argocd-linux-amd64 /usr/local/bin/argocd \
-  && rm argocd-linux-amd64
+# # install Argocd CLI
+# RUN curl -sSL -o argocd-linux-amd64 https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64 \
+#   && sudo install -m 555 argocd-linux-amd64 /usr/local/bin/argocd \
+#   && rm argocd-linux-amd64
