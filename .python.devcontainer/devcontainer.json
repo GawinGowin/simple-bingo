@@ -19,7 +19,12 @@
 				"mhutchie.git-graph",
 				"ms-python.python",
 				"humao.rest-client"
-			]
+			],
+			"settings": {
+				"editor.detectIndentation": false,
+				"editor.insertSpaces": true,
+				"editor.tabSize": 2
+			}
 		}
 	}
 }
